@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 Dialogue 1 Quiz - السكن</title>
+    <style>
+        :root {
+            --primary-color: #1877f2; /* Facebook Blue */
+            --primary-darker: #1056b0;
+            --secondary-color: #42b72a; /* Green */
+            --secondary-darker: #36a420;
+            
+            --background-color: #f0f2f5;
+            --card-background-color: #ffffff;
+            --text-color: #333;
+            --text-color-light: #555;
+            --border-color: #dde;
+            --input-bg-color: #f0f0f0;
+            --input-hover-bg-color: #e0e0e0;
+            --button-text-color: #ffffff;
+            --header-text-color: #ffffff;
+            --box-shadow-color: rgba(0, 0, 0, 0.1);
+
+            --answer-correct-bg: #d1e7dd;
+            --answer-correct-border: #badbcc;
+            --answer-correct-text: #0f5132;
+            --answer-incorrect-bg: #f8d7da;
+            --answer-incorrect-border: #f5c2c7;
+            --answer-incorrect-text: #842029;
+        }
+
+        body.dark-mode {
+            --primary-color: #2d8cff; 
+            --primary-darker: #1a73e8;
+            --secondary-color: #57c940;
+            --secondary-darker: #4caf50;
+
+            --background-color: #18191a; /* Dark gray */
+            --card-background-color: #242526; /* Slightly lighter dark gray */
+            --text-color: #e4e6eb; /* Light gray for text */
+            --text-color-light: #b0b3b8;
+            --border-color: #3a3b3c; /* Darker border */
+            --input-bg-color: #3a3b3c;
+            --input-hover-bg-color: #4f5051;
+            --button-text-color: #e4e6eb;
+            --header-text-color: #e4e6eb;
+            --box-shadow-color: rgba(0, 0, 0, 0.3);
+
+            --answer-correct-bg: #2a5c3b;
+            --answer-correct-border: #3a7c4e;
+            --answer-correct-text: #d1e7dd;
+            --answer-incorrect-bg: #7d2a30;
+            --answer-incorrect-border: #a53840;
+            --answer-incorrect-text: #f8d7da;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            direction: rtl;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px; /* Max width for larger screens */
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background-color: var(--card-background-color);
+            box-shadow: 0 2px 15px var(--box-shadow-color);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--header-text-color);
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: var(--primary-darker) 4px solid;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            transition: background-color 0.3s, border-bottom-color 0.3s, color 0.3s;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .theme-toggle-button {
+            position: absolute;
+            top: 15px;
+            left: 15px; /* For RTL, this will be on the right visually */
+            background-color: var(--secondary-color);
+            color: var(--button-text-color);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        .theme-toggle-button:hover {
+            background-color: var(--secondary-darker);
+        }
+
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: var(--background-color); /* Use main background for question card */
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+         .question p .arabic-term {
+            font-weight: normal;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: var(--input-bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .options label:hover {
+            background-color: var(--input-hover-bg-color);
+        }
+        .options input[type="radio"] {
+             margin-left: 10px; /* RTL support */
+             vertical-align: middle;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+            border-radius: 4px;
+            width: calc(100% - 22px); 
+            font-size: 1em;
+            margin-bottom: 5px; /* Space between inputs */
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+        input[type="text"]::placeholder {
+            color: var(--text-color-light);
+        }
+
+
+        button {
+            background-color: var(--secondary-color);
+            color: var(--button-text-color);
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--secondary-darker);
+        }
+        
+        .answer {
+            display: none;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+        .answer.correct {
+            background-color: var(--answer-correct-bg);
+            border: 1px solid var(--answer-correct-border);
+            color: var(--answer-correct-text);
+        }
+        .answer.incorrect {
+             background-color: var(--answer-incorrect-bg);
+             border: 1px solid var(--answer-incorrect-border);
+             color: var(--answer-incorrect-text);
+        }
+        .feedback {
+            font-weight: bold;
+            margin-left: 5px; /* RTL means this is to the right visually */
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 35px;
+            color: var(--text-color-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+            transition: color 0.3s, border-top-color 0.3s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .question p {
+                font-size: 1em;
+            }
+            button, input[type="text"], .options label {
+                font-size: 0.95em;
+            }
+            .theme-toggle-button {
+                font-size: 0.8em;
+                padding: 6px 10px;
+                top: 10px;
+                left: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+             header h1 {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+             .theme-toggle-button {
+                width: 80px; /* Ensure text fits */
+                text-align: center;
+            }
+            /* Stack inputs in Q8 and Q10 on small screens */
+            .question .dual-input-container input[type="text"] {
+                 width: calc(100% - 22px); /* Full width when stacked */
+                 margin-bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>اختبار تفاعلي: الحوار الأول - السَّكَن</h1>
+        <button id="themeToggle" class="theme-toggle-button">تبديل الوضع</button>
+    </header>
+
+    <div class="container">
+
+        <h2 class="section-title">Section 2: Dialogue Comprehension & Vocabulary / القسم الثاني: أسئلة فهم الحوار والمفردات</h2>
+
+        <div class="question">
+            <p>4. How do you ask "Where do you live?" (to a male) in Arabic? Write the question in Arabic (e.g., using <span class="arabic-term">'أَيْنَ تَسْكُنُ؟' - 'ayna taskunu?'</span>).</p>
+            <input type="text" id="q4_input" placeholder="اكتب السؤال بالعربية مع التشكيل إن أمكن">
+            <button onclick="checkTextAnswer('q4_ans', 'q4_input', ['أين تسكن؟', 'أَيْنَ تَسْكُنُ؟', 'أين تسكن', 'أَيْنَ تَسْكُنُ'])">تحقق من الإجابة</button>
+            <div id="q4_ans" class="answer">أَيْنَ تَسْكُنُ؟</div>
+        </div>
+
+        <div class="question">
+            <p>5. How do you say "I live in..." in Arabic? The key verb is <span class="arabic-term">سَكَنَ (sakana - to live/reside)</span>.</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> تَسْكُنُ في... (taskunu fī...)</label>
+                <label><input type="radio" name="q5" value="b"> أَسْكُنُ في... (askunu fī...)</label>
+                <label><input type="radio" name="q5" value="c"> نَسْكُنُ في... (naskunu fī...)</label>
+            </div>
+            <button onclick="showAnswer('q5_ans', 'b', 'q5')">إظهار الإجابة</button>
+            <div id="q5_ans" class="answer">أَسْكُنُ في... (الهمزة في بداية "أَسْكُنُ" تدل على المتكلم "أنا" - I)</div>
+        </div>
+
+        <div class="question">
+            <p>6. What does the word <span class="arabic-term">'حَيّ' (ḥayy)</span> mean in the context of housing, as in <span class="arabic-term">'حَيّ المَطَار' (ḥayy al-maṭār - Airport District)</span>?</p>
+            <input type="text" id="q6_input" placeholder="Write the meaning in English or Arabic">
+            <button onclick="checkTextAnswer('q6_ans', 'q6_input', ['district', 'area', 'neighbourhood', 'حي', 'منطقة'])">تحقق من الإجابة</button>
+            <div id="q6_ans" class="answer">District / Area / Neighbourhood (أو: منطقة)</div>
+        </div>
+        
+        <div class="question">
+            <p>7. The word <span class="arabic-term">'الحَيّ' (Al-Ḥayy)</span> is also one of the names of Allah (God). In this context, what does it mean?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> The Merciful</label>
+                <label><input type="radio" name="q7" value="b"> The Ever-Living</label>
+                <label><input type="radio" name="q7" value="c"> The Creator</label>
+            </div>
+            <button onclick="showAnswer('q7_ans', 'b', 'q7')">Show Answer</button>
+            <div id="q7_ans" class="answer">The Ever-Living</div>
+        </div>
+
+        <div class="question">
+            <p>8. What is the meaning of <span class="arabic-term">'المَطَار' (al-maṭār)</span>? And what is the meaning of <span class="arabic-term">'الجَامِعَة' (al-jāmiʿah)</span>?</p>
+            <div class="dual-input-container">
+                <input type="text" id="q8_input_matar" placeholder="Meaning of المطار (English or Arabic)">
+                <input type="text" id="q8_input_jamia" placeholder="Meaning of الجامعة (English or Arabic)">
+            </div>
+            <button onclick="checkTwoTextAnswers('q8_ans', 'q8_input_matar', ['airport', 'المطار'], 'q8_input_jamia', ['university', 'الجامعة'])">تحقق من الإجابة</button>
+            <div id="q8_ans" class="answer">المطار (al-maṭār) = Airport / المطار ، الجامعة (al-jāmiʿah) = University / الجامعة</div>
+        </div>
+
+        <div class="question">
+            <p>9. What is the plural of <span class="arabic-term">'بَيْت' (bayt - house)</span>?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a"> بُيُوت (buyūt)</label>
+                <label><input type="radio" name="q9" value="b"> بَيْتَات (baytāt)</label>
+                <label><input type="radio" name="q9" value="c"> أَبْيَات (abyāt)</label>
+            </div>
+            <button onclick="showAnswer('q9_ans', 'a', 'q9')">إظهار الإجابة</button>
+            <div id="q9_ans" class="answer">بُيُوت</div>
+        </div>
+
+        <div class="question">
+            <p>10. What does <span class="arabic-term">'شَقَّة' (shaqqah)</span> mean? And what is its plural form in Arabic?</p>
+            <div class="dual-input-container">
+                <input type="text" id="q10_input_meaning" placeholder="Meaning of شقة (English or Arabic)">
+                <input type="text" id="q10_input_plural" placeholder="Plural of شقة (in Arabic)">
+            </div>
+            <button onclick="checkTwoTextAnswers('q10_ans', 'q10_input_meaning', ['apartment', 'flat', 'شقة'], 'q10_input_plural', ['شقق', 'شُقَق'])">تحقق من الإجابة</button>
+            <div id="q10_ans" class="answer">Meaning: Apartment / Flat (or: شقة) , Plural: شُقَق (shuqaq)</div>
+        </div>
+        
+        <div class="question">
+            <p>11. What is the meaning of <span class="arabic-term">'رَقْم' (raqm)</span>?</p>
+            <input type="text" id="q11_input" placeholder="Write the meaning in English or Arabic">
+            <button onclick="checkTextAnswer('q11_ans', 'q11_input', ['number', 'رقم'])">تحقق من الإجابة</button>
+            <div id="q11_ans" class="answer">Number (أو: رقم)</div>
+        </div>
+
+        <div class="question">
+            <p>12. What do the Arabic numbers <span class="arabic-term">'خَمْسَة' (khamsah)</span> and <span class="arabic-term">'تِسْعَة' (tisʿah)</span> mean in English?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a"> Khamsah = 3, Tis'ah = 7</label>
+                <label><input type="radio" name="q12" value="b"> Khamsah = 5, Tis'ah = 9</label>
+                <label><input type="radio" name="q12" value="c"> Khamsah = 4, Tis'ah = 8</label>
+            </div>
+            <button onclick="showAnswer('q12_ans', 'b', 'q12')">Show Answer</button>
+            <div id="q12_ans" class="answer">Khamsah = 5, Tis'ah = 9</div>
+        </div>
+
+        <h2 class="section-title">Section 3: Grammar & Structures / القسم الثالث: أسئلة القواعد والتراكيب اللغوية</h2>
+
+        <div class="question">
+            <p>13. Which Arabic question word is used to ask a Yes/No question (e.g., 'Do you...?' or 'Is it...?')?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="a"> مَا (mā)</label>
+                <label><input type="radio" name="q13" value="b"> أَيْنَ (ayna)</label>
+                <label><input type="radio" name="q13" value="c"> هَلْ (hal)</label>
+            </div>
+            <button onclick="showAnswer('q13_ans', 'c', 'q13')">إظهار الإجابة</button>
+            <div id="q13_ans" class="answer">هَلْ (Hal) - Example: هَلْ تَسْكُنُ فِي بَيْت؟ (Hal taskunu fī bayt? - Do you live in a house?)</div>
+        </div>
+
+        <div class="question">
+            <p>14. Which Arabic question word is used to ask 'What...?' for non-human things or concepts (e.g., <span class="arabic-term">'مَا رَقْمُ شَقَّتِكَ؟' - mā raqmu shaqqatika? - What is your apartment number?</span>)?</p>
+            <input type="text" id="q14_input" placeholder="Write the question word in Arabic">
+            <button onclick="checkTextAnswer('q14_ans', 'q14_input', ['ما', 'مَا'])">تحقق من الإجابة</button>
+            <div id="q14_ans" class="answer">مَا (Mā)</div>
+        </div>
+
+        <div class="question">
+            <p>15. In the verb <span class="arabic-term">'تَسْكُنُ' (taskunu)</span>, what does the prefix <span class="arabic-term">'تَ-' (ta-)</span> typically indicate when addressing a male, or referring to 'she'?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="a"> "أنا" (I - ana)</label>
+                <label><input type="radio" name="q15" value="b"> "أنتَ" (You - masculine - anta) / "هي" (She - hiya)</label>
+                <label><input type="radio" name="q15" value="c"> "هو" (He - huwa)</label>
+            </div>
+            <button onclick="showAnswer('q15_ans', 'b', 'q15')">إظهار الإجابة</button>
+            <div id="q15_ans" class="answer">"أنتَ" (You - masculine) or "هي" (She). In this dialogue, it refers to "أنتَ".</div>
+        </div>
+        
+        <footer>
+            <p>تم إنشاء هذا الاختبار لمساعدتك على مراجعة الحوار الأول من الوحدة الثالثة. بالتوفيق في دراستك!</p>
+            <p>This quiz was created to help you review the first dialogue of Unit 3. Good luck with your studies!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Store original answer texts to prevent feedback duplication
+        const originalAnswers = {};
+        document.querySelectorAll('.answer').forEach(ansDiv => {
+            originalAnswers[ansDiv.id] = ansDiv.innerHTML;
+        });
+
+        function showAnswer(answerId, correctAnswerValue, questionName) {
+            const answerDiv = document.getElementById(answerId);
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            const baseAnswerText = originalAnswers[answerId];
+            
+            answerDiv.style.display = 'block';
+            answerDiv.classList.remove('incorrect', 'correct');
+
+            if (selectedOption) {
+                if (selectedOption.value === correctAnswerValue) {
+                    answerDiv.innerHTML = `<span class="feedback">صحيح! Correct!</span> ${baseAnswerText}`;
+                    answerDiv.classList.add('correct');
+                } else {
+                    answerDiv.innerHTML = `<span class="feedback">خطأ. Incorrect.</span> الإجابة الصحيحة هي (The correct answer is): ${baseAnswerText}`;
+                    answerDiv.classList.add('incorrect');
+                }
+            } else {
+                 answerDiv.innerHTML = `الإجابة هي (The answer is): ${baseAnswerText}`;
+            }
+        }
+
+        function checkTextAnswer(answerId, inputId, correctAnswersArray) {
+            const answerDiv = document.getElementById(answerId);
+            const userInput = document.getElementById(inputId).value.trim();
+            const baseAnswerText = originalAnswers[answerId];
+
+            answerDiv.style.display = 'block';
+            answerDiv.classList.remove('incorrect', 'correct');
+            
+            // Normalize by removing diacritics (tashkeel), common punctuation, and converting to lowercase for comparison.
+            const normalizeArabic = (str) => {
+                return str.toLowerCase()
+                          .replace(/[ًٌٍَُِّْء؟]/g, '') // Remove common diacritics and question mark
+                          .replace(/\s+/g, '')        // Remove all spaces
+                          .replace(/أ|إ|آ/g, 'ا')      // Normalize Alifs
+                          .replace(/ة/g, 'ه');        // Normalize Ta marbuta
+            };
+
+            const normalizedCorrectAnswers = correctAnswersArray.map(ans => normalizeArabic(ans));
+            const normalizedUserInput = normalizeArabic(userInput);
+
+            if (userInput === "") {
+                answerDiv.innerHTML = `الإجابة هي (The answer is): ${baseAnswerText}`;
+                return;
+            }
+
+            if (normalizedCorrectAnswers.includes(normalizedUserInput)) {
+                answerDiv.innerHTML = `<span class="feedback">صحيح! Correct!</span> ${baseAnswerText}`;
+                answerDiv.classList.add('correct');
+            } else {
+                answerDiv.innerHTML = `<span class="feedback">خطأ. Incorrect.</span> الإجابة الصحيحة هي (The correct answer is): ${baseAnswerText}`;
+                answerDiv.classList.add('incorrect');
+            }
+        }
+        
+        function checkTwoTextAnswers(answerId, inputId1, correctAnswersArray1, inputId2, correctAnswersArray2) {
+            const answerDiv = document.getElementById(answerId);
+            const userInput1 = document.getElementById(inputId1).value.trim();
+            const userInput2 = document.getElementById(inputId2).value.trim();
+            const baseAnswerText = originalAnswers[answerId];
+
+            answerDiv.style.display = 'block';
+            answerDiv.classList.remove('incorrect', 'correct');
+
+            const normalize = (str) => str.toLowerCase().trim().replace(/[ًٌٍَُِّْء؟]/g, '').replace(/أ|إ|آ/g, 'ا').replace(/ة/g, 'ه');
+
+            const normalizedCorrect1 = correctAnswersArray1.map(ans => normalize(ans));
+            const normalizedUser1 = normalize(userInput1);
+            
+            const normalizedCorrect2 = correctAnswersArray2.map(ans => normalize(ans));
+            const normalizedUser2 = normalize(userInput2);
+
+            let isCorrect1 = normalizedCorrect1.includes(normalizedUser1);
+            let isCorrect2 = normalizedCorrect2.includes(normalizedUser2);
+
+            if (userInput1 === "" && userInput2 === "") {
+                 answerDiv.innerHTML = `الإجابات هي (The answers are): ${baseAnswerText}`;
+                 return;
+            }
+            
+            if (isCorrect1 && isCorrect2) {
+                answerDiv.innerHTML = `<span class="feedback">صحيح! Correct!</span> ${baseAnswerText}`;
+                answerDiv.classList.add('correct');
+            } else {
+                let feedbackMsg = "خطأ. Incorrect. ";
+                if (userInput1 !== "" || userInput2 !== "") { 
+                    if (!isCorrect1 && userInput1 !== "") feedbackMsg += `الجزء الأول غير صحيح (First part incorrect). `;
+                    if (!isCorrect2 && userInput2 !== "") feedbackMsg += `الجزء الثاني غير صحيح (Second part incorrect). `;
+                }
+                answerDiv.innerHTML = `<span class="feedback">${feedbackMsg}</span> الإجابات الصحيحة هي (The correct answers are): ${baseAnswerText}`;
+                answerDiv.classList.add('incorrect');
+            }
+        }
+
+        // Theme Toggle Functionality
+        const themeToggleButton = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+            if (currentTheme === 'dark-mode') {
+                themeToggleButton.textContent = 'وضع فاتح (Light)';
+            } else {
+                themeToggleButton.textContent = 'وضع داكن (Dark)';
+            }
+        } else { // Default to light mode if no preference saved
+             themeToggleButton.textContent = 'وضع داكن (Dark)';
+        }
+
+
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light-mode';
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark-mode';
+                themeToggleButton.textContent = 'وضع فاتح (Light)';
+            } else {
+                themeToggleButton.textContent = 'وضع داكن (Dark)';
+            }
+            localStorage.setItem('theme', theme);
+        });
+
+    </script>
+</body>
+</html>
